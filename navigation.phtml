@@ -34,7 +34,7 @@ $container = $this->container;
                                     target="<?php echo $child->getTarget(); ?>"
                                 <?php endif; ?>
                                 >
-                                    <?php echo $this->translate($child->getLabel()) ?>
+                                    <?php echo $child->getLabel(); ?>
                             </a>
                         </li>
                     <?php endforeach ?>
