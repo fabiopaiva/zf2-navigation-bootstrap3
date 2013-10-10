@@ -16,7 +16,10 @@ $container = $this->container;
                         target="<?php echo $page->getTarget(); ?>"
                     <?php endif; ?>
                     >
-                        <?php echo $page->getLabel() ?>
+                        <?php if ($page->get("icon") !== ""): ?>
+                        <i class="<?php echo $page->get("icon"); ?>"></i>
+                    <?php endif; ?>
+                    <?php echo $page->getLabel() ?>
                 </a>
             </li>
         <?php else: ?>
@@ -34,7 +37,10 @@ $container = $this->container;
                                     target="<?php echo $child->getTarget(); ?>"
                                 <?php endif; ?>
                                 >
-                                    <?php echo $child->getLabel(); ?>
+                                    <?php if ($child->get("icon") !== ""): ?>
+                                    <i class="<?php echo $child->get("icon"); ?>"></i>
+                                <?php endif; ?>
+                                <?php echo $child->getLabel() ?>
                             </a>
                         </li>
                     <?php endforeach ?>
