@@ -18,3 +18,26 @@ In your layout view
         ->setUlClass('nav navbar-nav')
         ->setPartial('partial/navigation.phtml'); 
     ?>
+Example navigation:
+
+    return array(
+        'navigation' => array(
+            'default' => array(
+                array(
+                'label' => 'Home',
+                'route' => 'home',
+                'icon' => 'glyphicon glyphicon-home''
+                ),
+            ),
+        ),
+    );
+
+Activate default navigation in an autoload config file:
+
+    return array(
+        'service_manager' => array(
+            'factories' => array(
+                'Navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+            ),
+        ),
+    );
