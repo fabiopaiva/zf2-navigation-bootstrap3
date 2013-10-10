@@ -1,0 +1,45 @@
+<?php
+/* @var $container Zend\Navigation\Navigation */
+$container = $this->container;
+?>
+<ul class="nav navbar-nav">
+    <?php foreach ($container as $page): ?>
+
+        <?php /* @var $page Zend\Navigation\Page\Mvc */ ?>
+        <?php $hasChildren = $page->hasPages() ?>
+        <?php if (!$hasChildren): ?>
+            <li<?php if ($page->isActive()) echo ' class="active"' ?>>
+                <a 
+                    class="nav-header" 
+                    href="<?php echo $page->getHref() ?>"
+                    <?php if ($page->getTarget() != ""): ?>
+                        target="<?php echo $page->getTarget(); ?>"
+                    <?php endif; ?>
+                    >
+                        <?php echo $page->getLabel() ?>
+                </a>
+            </li>
+        <?php else: ?>
+            <li class="dropdown<?php if ($page->isActive(true)) echo ' active' ?>">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <?php echo $page->getLabel() ?>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <?php foreach ($page->getPages() as $child): ?>
+                        <li<?php if ($child->isActive()) echo ' class="active"' ?>>
+                            <a 
+                                href="<?php echo $child->getHref() ?>"
+                                <?php if ($child->getTarget() != ""): ?>
+                                    target="<?php echo $child->getTarget(); ?>"
+                                <?php endif; ?>
+                                >
+                                    <?php echo $this->translate($child->getLabel()) ?>
+                            </a>
+                        </li>
+                    <?php endforeach ?>
+                </ul>
+            </li>   
+        <?php endif ?>
+    <?php endforeach ?>
+</ul>
