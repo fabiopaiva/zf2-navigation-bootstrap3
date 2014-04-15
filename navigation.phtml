@@ -2,7 +2,7 @@
 /* @var $container Zend\Navigation\Navigation */
 $container = $this->container;
 ?>
-<ul class="nav navbar-nav">
+<ul class="<?php echo $this->navigation()->menu()->getUlClass();?>">
     <?php foreach ($container as $page): ?>
 
         <?php /* @var $page Zend\Navigation\Page\Mvc */ ?>
