@@ -24,9 +24,23 @@ Example navigation:
         'navigation' => array(
             'default' => array(
                 array(
-                'label' => 'Home',
-                'route' => 'home',
-                'icon' => 'glyphicon glyphicon-home''
+                    'label' => 'Home',
+                    'route' => 'home',
+                    'icon' => 'glyphicon glyphicon-home''
+                ),
+                array(
+                    'label' => 'Home',
+                    'route' => 'home',
+                    'icon' => 'glyphicon glyphicon-home''
+                ),
+                array(
+                    'uri' => '#',
+                    'separator' => true
+                ),
+                array(
+                    'label' => 'Home',
+                    'route' => 'home',
+                    'icon' => 'glyphicon glyphicon-home''
                 ),
             ),
         ),
