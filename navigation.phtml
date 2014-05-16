@@ -2,7 +2,7 @@
 /* @var $container Zend\Navigation\Navigation */
 $container = $this->container;
 ?>
-<ul class="<?php echo $this->navigation()->menu()->getUlClass();?>">
+<ul class="<?php echo $this->navigation()->menu()->getUlClass(); ?>">
     <?php foreach ($container as $page): ?>
 
         <?php /* @var $page Zend\Navigation\Page\Mvc */ ?>
@@ -17,7 +17,7 @@ $container = $this->container;
                     <?php endif; ?>
                     >
                         <?php if ($page->get("icon") !== ""): ?>
-                        <i class="<?php echo $page->get("icon"); ?>"></i>
+                        <span class="<?php echo $page->get("icon"); ?>"></span>
                     <?php endif; ?>
                     <?php echo $page->getLabel() ?>
                 </a>
@@ -26,22 +26,27 @@ $container = $this->container;
             <li class="dropdown<?php if ($page->isActive(true)) echo ' active' ?>">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <?php if ($page->get("icon") !== ""): ?>
-                        <i class="<?php echo $page->get("icon"); ?>"></i>
+                        <span class="<?php echo $page->get("icon"); ?>"></span>
                     <?php endif; ?>
                     <?php echo $page->getLabel() ?>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
                     <?php foreach ($page->getPages() as $child): ?>
+                        <?php if ($child->get("separator") === true): ?>
+                            <li class="divider"></li>
+                                <?php
+                                continue;
+                            endif;
+                            ?>
                         <li<?php if ($child->isActive()) echo ' class="active"' ?>>
                             <a 
                                 href="<?php echo $child->getHref() ?>"
                                 <?php if ($child->getTarget() != ""): ?>
                                     target="<?php echo $child->getTarget(); ?>"
-                                <?php endif; ?>
-                                >
+                                <?php endif; ?> >
                                     <?php if ($child->get("icon") !== ""): ?>
-                                    <i class="<?php echo $child->get("icon"); ?>"></i>
+                                    <span class="<?php echo $child->get("icon"); ?>"></span>
                                 <?php endif; ?>
                                 <?php echo $child->getLabel() ?>
                             </a>
