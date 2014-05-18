@@ -4,7 +4,7 @@ $container = $this->container;
 ?>
 <ul class="<?php echo $this->navigation()->menu()->getUlClass(); ?>">
     <?php foreach ($container as $page): ?>
-
+        <?php if (!$this->navigation()->accept($page)) continue; ?>
         <?php /* @var $page Zend\Navigation\Page\Mvc */ ?>
         <?php $hasChildren = $page->hasPages() ?>
         <?php if (!$hasChildren): ?>
