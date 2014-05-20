@@ -42,12 +42,12 @@ Example navigation:
                 array(
                     'label' => 'Home',
                     'route' => 'home',
-                    'icon' => 'glyphicon glyphicon-home''
+                    'icon' => 'glyphicon glyphicon-home'
                 ),
                 array(
                     'label' => 'Home',
                     'route' => 'home',
-                    'icon' => 'glyphicon glyphicon-home''
+                    'icon' => 'glyphicon glyphicon-home'
                 ),
                 array(
                     'uri' => '#',
@@ -56,7 +56,7 @@ Example navigation:
                 array(
                     'label' => 'Home',
                     'route' => 'home',
-                    'icon' => 'glyphicon glyphicon-home''
+                    'icon' => 'glyphicon glyphicon-home'
                 ),
             ),
         ),
