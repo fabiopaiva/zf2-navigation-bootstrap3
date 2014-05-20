@@ -12,12 +12,28 @@ Usage:
 
 In your layout view
 
-    <?php echo $this->
-        navigation('navigation')
-        ->menu()
-        ->setUlClass('nav navbar-nav')
-        ->setPartial('partial/navigation.phtml'); 
-    ?>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#zf2-navigation-bootstrap3-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="<?php echo $this->url('home');?>">Brand</a>
+        </div>
+        <div class="collapse navbar-collapse" id="zf2-navigation-bootstrap3-1">
+        <?php echo $this->
+            navigation('navigation')
+            ->menu()
+            ->setUlClass('nav navbar-nav')
+            ->setPartial('partial/navigation.phtml'); 
+        ?>
+        </div>
+      </div>
+    </nav>
+
 Example navigation:
 
     return array(
