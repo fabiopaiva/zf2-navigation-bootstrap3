@@ -68,10 +68,11 @@ Example navigation:
                 'label' => 'Menu 3',
                 'uri' => '#',
                 'icon' => 'glyphicon glyphicon-home'
+                ),
             ),
         ),
-    ),
-  );
+    );
+
 
 
 Activate default navigation in an autoload config file:
