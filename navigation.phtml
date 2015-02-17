@@ -19,7 +19,7 @@ $container = $this->container;
                         <?php if ($page->get("icon") !== ""): ?>
                         <span class="<?php echo $page->get("icon"); ?>"></span>
                     <?php endif; ?>
-                    <?php echo $page->getLabel() ?>
+                    <?php echo $this->escapeHtml($this->translate($page->getLabel())); ?>
                 </a>
             </li>
         <?php else: ?>
@@ -38,7 +38,7 @@ $container = $this->container;
                         <?php if ($page->get("icon") !== ""): ?>
                             <span class="<?php echo $page->get("icon"); ?>"></span>
                         <?php endif; ?>
-                        <?php echo $page->getLabel() ?>
+                        <?php echo $this->escapeHtml($this->translate($page->getLabel())); ?>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -59,7 +59,7 @@ $container = $this->container;
                                         <?php if ($child->get("icon") !== ""): ?>
                                         <span class="<?php echo $child->get("icon"); ?>"></span>
                                     <?php endif; ?>
-                                    <?php echo $child->getLabel() ?>
+                                    <?php echo $this->escapeHtml($this->translate($child->getLabel())); ?>
                                 </a>
                             </li>
                         <?php endforeach ?>
@@ -69,4 +69,3 @@ $container = $this->container;
         <?php endif ?>
     <?php endforeach ?>
 </ul>
-
