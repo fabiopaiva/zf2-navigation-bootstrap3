@@ -2,7 +2,7 @@
 /* @var $container Zend\Navigation\Navigation */
 $container = $this->container;
 ?>
-<ul class="<?php echo $this->navigation()->menu()->getUlClass(); ?>">
+<ul class="<?php echo $this->navigation($container)->menu()->getUlClass(); ?>">
     <?php foreach ($container as $page): ?>
         <?php if (!$this->navigation()->accept($page)) continue; ?>
         <?php /* @var $page Zend\Navigation\Page\Mvc */ ?>
@@ -19,7 +19,7 @@ $container = $this->container;
                         <?php if ($page->get("icon") !== ""): ?>
                         <span class="<?php echo $page->get("icon"); ?>"></span>
                     <?php endif; ?>
-                    <?php echo $this->escapeHtml($this->translate($page->getLabel())); ?>
+                    <?php echo $this->escapeHtml($this->translate($page->getLabel(), $this->navigation($container)->getTranslatorTextDomain())); ?>
                 </a>
             </li>
         <?php else: ?>
@@ -38,7 +38,7 @@ $container = $this->container;
                         <?php if ($page->get("icon") !== ""): ?>
                             <span class="<?php echo $page->get("icon"); ?>"></span>
                         <?php endif; ?>
-                        <?php echo $this->escapeHtml($this->translate($page->getLabel())); ?>
+                        <?php echo $this->escapeHtml($this->translate($page->getLabel(),$this->navigation($container)->getTranslatorTextDomain())); ?>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -59,7 +59,7 @@ $container = $this->container;
                                         <?php if ($child->get("icon") !== ""): ?>
                                         <span class="<?php echo $child->get("icon"); ?>"></span>
                                     <?php endif; ?>
-                                    <?php echo $this->escapeHtml($this->translate($child->getLabel())); ?>
+                                    <?php echo $this->escapeHtml($this->translate($child->getLabel(),$this->navigation($container)->getTranslatorTextDomain())); ?>
                                 </a>
                             </li>
                         <?php endforeach ?>
